@@ -37,4 +37,8 @@ class User < ApplicationRecord
   def a_friend?(user)
     friends.include?(user)
   end
+
+  def appropriate_post_to_show    
+    Post.where("user_id=? or user_id=?",friend_ids,id)    
+  end
 end
