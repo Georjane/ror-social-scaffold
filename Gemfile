@@ -44,10 +44,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
-  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+  gem 'rspec'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
+  gem 'shoulda-matchers', '~> 4.4', '>= 4.4.1'
 end
 
 group :development do

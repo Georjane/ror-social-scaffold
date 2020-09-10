@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def reject_request(user)
-    friend_to_reject = inverse_friendships.find{|f|f.user==user}
+    friend_to_reject = inverse_friendships.find { |f| f.user == user }
     friend_to_reject.destroy
   end
 
@@ -38,7 +38,7 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-  def appropriate_post_to_show    
-    Post.where("user_id=? or user_id=?",friend_ids,id)    
+  def appropriate_post_to_show
+    Post.where('user_id=? or user_id=?', friend_ids, id)
   end
 end
