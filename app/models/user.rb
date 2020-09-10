@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   def confirm_request(user)
     friend_to_confirm = Friendship.find_by(user_id: user.id, friend_id: id)
-    friend_to_confirm.update(status: true)
+    friend_to_confirm.update!(status: true)
   end
 
   def reject_request(user)
