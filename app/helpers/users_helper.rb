@@ -8,8 +8,8 @@ module UsersHelper
     if current_user.pending_friendrequests.include?(user_to_evaluate)
       status_btn << link_to('Pending', '#')
     elsif current_user.friendrequests.include?(user_to_evaluate)
-      status_btn << link_to('Confirm', confirm_friend_request_path(user_id: user_to_evaluate.id), method: :put)
-      status_btn << link_to('Decline', reject_friend_request_path(user_id: user_to_evaluate.id), method: :delete)
+      status_btn << link_to('Confirm', confirm_friend_request_path(friend: user_to_evaluate), method: :put)
+      status_btn << link_to('Decline', reject_friend_request_path(friend: user_to_evaluate.id), method: :delete)
     else
       status_btn << link_to('Send friend request',
                             send_friend_request_path(user_id: user_to_evaluate.id), method: :post)

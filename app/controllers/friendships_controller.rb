@@ -9,18 +9,18 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:user_id])
-    if current_user.confirm_request(@user)
-      redirect_to users_path, notice: "You are now friend with #{@user.name}"
+    @friend = current_user.friendrequests.find(params[:friend])
+    if current_user.confirm_request(@friend)
+      redirect_to users_path, notice: "You are now friend with #{@friend.name}"
     else
       redirect_to users_path, alert: 'Your friendship confirmation failed Please try again!'
     end
   end
 
   def destroy
-    @user = User.find(params[:user_id])
-    if current_user.reject_request(@user)
-      redirect_to users_path, notice: "You have rejected friendship with #{@user.name} successfully!"
+    @friend = current_user.friendrequests.find(params[:friend])
+    if current_user.reject_request(@friend)
+      redirect_to users_path, notice: "You have rejected friendship with #{@friend.name} successfully!"
     else
       redirect_to users_path, alert: 'Your friendship rejection failed. Please try again!'
     end

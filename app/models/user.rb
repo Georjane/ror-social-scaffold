@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :friendships
+  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id
 
   has_many :confirmed_friendships, -> { where status: true }, class_name: 'Friendship'
   has_many :friends, through: :confirmed_friendships
@@ -22,19 +23,14 @@ class User < ApplicationRecord
   has_many :friendrequests, through: :received_friendrequests, source: :user
 
   def confirm_request(user)
-    # friend_to_confirm = Friendship.find_by(user_id: user.id, friend_id: id)
-    friend_to_confirm = pending_friendrequests.find { |friendship| friendship.user == user }
+    friend_to_confirm = Friendship.find_by(user_id: user.id, friend_id: id)
     friend_to_confirm.status = true
     friend_to_confirm.save!
-    # friend_to_confirm.update!(status: true)
-    Friendship.create!(friend_id: id, status: true, user_id: user.id)
+    Friendship.create!(friend_id: user.id, status: true, user_id: id)
   end
 
-  def reject_request(_user)
-    friend_to_reject = friendrequests.find do |friendship|
-      # friendship.user == user
-      puts friendship.user_id
-    end
+  def reject_request(user)
+    friend_to_reject = inverse_friendships.find{|f|f.user==user}
     friend_to_reject.destroy
   end
 
