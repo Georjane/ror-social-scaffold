@@ -30,15 +30,15 @@ class User < ApplicationRecord
     Friendship.create!(friend_id: id, status: true, user_id: user.id)
   end
 
-  def reject_request(user)
-    friend_to_reject = friendrequests.find do |friendship| 
-      # friendship.user == user 
+  def reject_request(_user)
+    friend_to_reject = friendrequests.find do |friendship|
+      # friendship.user == user
       puts friendship.user_id
     end
     friend_to_reject.destroy
   end
 
-  def is_a_friend?(user)
+  def a_friend?(user)
     friends.include?(user)
   end
 end
