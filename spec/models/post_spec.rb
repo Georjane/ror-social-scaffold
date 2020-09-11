@@ -9,8 +9,8 @@ RSpec.describe Post, type: :model do
   describe 'validation' do
     it { should validate_presence_of(:content) }
     it {
-      should validate_length_of(:content).is_at_most(1000).with_message
-      '1000 characters in post is the maximum allowed.'
+      should validate_length_of(:content).is_at_most(1000).with_message(
+      '1000 characters in post is the maximum allowed.')
     }
   end
   it 'when content has being validated, saving in the db succeeds' do

@@ -8,8 +8,8 @@ RSpec.describe Comment, type: :model do
   describe 'validation' do
     it { should validate_presence_of(:content) }
     it {
-      should validate_length_of(:content).is_at_most(200).with_message
-      '200 characters in comment is the maximum allowed.'
+      should validate_length_of(:content).is_at_most(200).with_message(
+      '200 characters in comment is the maximum allowed.')
     }
   end
   it 'when content has being validated, saving in the db succeeds' do
