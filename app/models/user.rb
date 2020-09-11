@@ -43,12 +43,6 @@ class User < ApplicationRecord
   end
 
   def all_our_mutual_friend(user)
-    # mutual_friends=[]
-    # friends.each do |curr_frnd|
-    #   found_mutual=user.friends.filter{|curr_user_frnd| curr_user_frnd==curr_frnd }
-    #   mutual_friends<<found_mutual[0]
-    # end
-    # mutual_friends
     friends and user.friends
   end
 end
