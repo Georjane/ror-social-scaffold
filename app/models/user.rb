@@ -39,6 +39,7 @@ class User < ApplicationRecord
   end
 
   def appropriate_post_to_show
-    Post.where('user_id=? or user_id=?', friend_ids, id)
+    Post.where("user_id = ?", id)
   end
+
 end
