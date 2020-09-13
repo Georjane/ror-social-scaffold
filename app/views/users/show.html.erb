@@ -31,4 +31,14 @@
     <%end%>
     </ul>
   </article>
+  <article class="timeline">
+  <h4>All mutual friends </h4>
+  <ul class="posts">
+  <%@mutual_friends.each do |friend|%>
+    <li>
+      <%= friend.name %>
+     </li>
+    <%end%>
+    </ul>
+  </article>
 </section>

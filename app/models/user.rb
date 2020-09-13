@@ -41,4 +41,8 @@ class User < ApplicationRecord
   def appropriate_post_to_show
     Post.where(user_id: friend_ids).or(Post.where('user_id=?', id))
   end
+
+  def all_our_mutual_friend(user)
+    friends and user.friends
+  end
 end
