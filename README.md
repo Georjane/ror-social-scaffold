@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-TBA
+[ror-social-scaffold](https://ror-social-scaffold-1.herokuapp.com/)
 
 
 ## Getting Started
@@ -20,9 +20,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.7.0
-Rails: 5.2.3
-Postgres: >=9.5
+- Ruby: 2.7.0
+- Rails: 5.2.3
+- Postgres: >=9.5
 
 ### Setup
 
@@ -60,7 +60,7 @@ Run the tests by running the following command
 
 ### Deployment
 
-TBA
+This project is depolyed to Heroku [ror-social-scaffold](https://ror-social-scaffold-1.herokuapp.com/)
 
 ## Authors
 ### 1. MUGIRASE Emmanuel
@@ -68,7 +68,7 @@ TBA
 * Twitter: [@descholar3](https://twitter.com/descholar3)
 * LinkedIn: [MUGIRASE Emmanuel](https://www.linkedin.com/in/mugirase-emmanuel)
 
-### 2. Witah Ngu Georjane
+### 2. Witah Georjane
 * Github: [@Georjane](https://github.com/Georjane)
 * Twitter: [@WittyJany](https://twitter.com/WittyJany)
 * LinkedIn: [Witah Georjane](https://www.linkedin.com/in/witah-georjane)
