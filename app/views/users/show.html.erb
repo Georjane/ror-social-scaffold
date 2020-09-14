@@ -1,9 +1,44 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
+  <%=friendship_status(@user)%>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
+    </ul>
+  </article>
+
+  <article class="timeline">
+  <h4>All of received frendship requests (pending) </h4>
+  <ul class="posts">
+  <%@user.friendrequests.each do |request|%>
+    <li>
+      <%= request.name %>
+     <%=friendship_status(request)%>
+     </li>
+    <%end%>
+    </ul>
+  </article>
+
+  <article class="timeline">
+  <h4>All of sent frendship requests </h4>
+  <ul class="posts">
+  <%@user.pending_friendrequests.each do |request|%>
+    <li>
+      <%= request.name %>
+     <%=friendship_status(request)%>
+     </li>
+    <%end%>
+    </ul>
+  </article>
+  <article class="timeline">
+  <h4>All mutual friends </h4>
+  <ul class="posts">
+  <%@mutual_friends.each do |friend|%>
+    <li>
+      <%= friend.name %>
+     </li>
+    <%end%>
     </ul>
   </article>
 </section>
